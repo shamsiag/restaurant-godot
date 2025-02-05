@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=3 uid="uid://be7jxcsshsqu2"]
+
+[ext_resource type="Script" path="res://level/ui_fridge.gd" id="1_7yots"]
+[ext_resource type="FontFile" uid="uid://iegumfiatja8" path="res://assets/kenney_ui-pack/Font/Kenney Future Narrow.ttf" id="2_cxlve"]
+
+[sub_resource type="Theme" id="Theme_papm0"]
+
+[node name="UIfridge" type="CanvasLayer"]
+script = ExtResource("1_7yots")
+
+[node name="ActionPrompt" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 9.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_papm0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ActionPrompt"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 139.0
+offset_top = 7.0
+offset_right = -53.0
+offset_bottom = 343.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_cxlve")
+theme_override_font_sizes/normal_font_size = 124
+text = "Appuyer sur espace"
+
+[node name="MenuPrompt" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuPrompt"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 113.0
+offset_top = 289.0
+offset_right = 1750.0
+offset_bottom = 625.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_cxlve")
+theme_override_font_sizes/normal_font_size = 124
+text = "Menu
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuPrompt"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -174.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuPrompt/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuPrompt/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="MenuPrompt"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.456
+anchor_top = 0.931
+anchor_right = 0.546
+anchor_bottom = 1.0
+offset_left = 0.479919
+offset_top = -0.480042
+offset_right = -0.320068
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "OK"
+
+[connection signal="button_up" from="MenuPrompt/Button" to="." method="_on_button_button_up"]

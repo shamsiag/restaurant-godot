@@ -1,6 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://cnedxfn2pxh2t"]
+[gd_scene load_steps=26 format=3 uid="uid://cnedxfn2pxh2t"]
 
+[ext_resource type="PackedScene" uid="uid://dmuyieqssmyou" path="res://UI/UI fatana/UIfatana.tscn" id="1_2mgec"]
 [ext_resource type="Shader" uid="uid://cdlt3ujrpad32" path="res://level/sky_with_stars.tres" id="1_hwp5q"]
+[ext_resource type="PackedScene" uid="uid://be7jxcsshsqu2" path="res://UI/UI frigo/UIfridge.tscn" id="1_n4gtl"]
+[ext_resource type="Script" path="res://assets/fbx/stove_single.gd" id="2_4ei1h"]
 [ext_resource type="Texture2D" uid="uid://ca3jtautvrj1u" path="res://level/moon.png" id="2_kb37w"]
 [ext_resource type="PackedScene" uid="uid://bij84ol81kcts" path="res://level/interactable/kill_plane/kill_plane_3d.tscn" id="3_1g472"]
 [ext_resource type="PackedScene" uid="uid://bl11wi12w5l0v" path="res://assets/floor/floor_kitchen-col.gltf" id="5_aau3o"]
@@ -13,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://cg32vxpeniv8m" path="res://assets/fbx/kitchencabinet.fbx" id="11_idhxk"]
 [ext_resource type="PackedScene" uid="uid://ddjryujjvtkvj" path="res://assets/fbx/shelf_papertowel.fbx" id="12_35xqo"]
 [ext_resource type="Script" path="res://assets/fbx/fridge_b.gd" id="13_i6tb1"]
-[ext_resource type="Script" path="res://level/canvas_layer.gd" id="14_a8fve"]
 
 [sub_resource type="Curve" id="Curve_k4wis"]
 _data = [Vector2(0.331719, 0.0391753), 0.0, 0.0, 0, 0, Vector2(0.697336, 1), 0.51276, 0.0, 0, 0]
@@ -82,9 +84,15 @@ volumetric_fog_albedo = Color(0.843137, 0.737255, 0.329412, 1)
 volumetric_fog_emission = Color(0.843137, 0.737255, 0.329412, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e41ca"]
-size = Vector3(5, 5, 5)
+size = Vector3(2.13438, 1.42465, 2.88533)
 
 [node name="Level" type="Node3D"]
+
+[node name="UIfatana" parent="." instance=ExtResource("1_2mgec")]
+unique_name_in_owner = true
+
+[node name="UIfridge" parent="." instance=ExtResource("1_n4gtl")]
+unique_name_in_owner = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5pwhg")
@@ -128,12 +136,31 @@ transform = Transform3D(1.17198, 0.0115735, 0.0149219, -0.0138426, 0.999806, 0.0
 
 [node name="stove_single" parent="." instance=ExtResource("9_63faw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49792, 1.27718, -26.2424)
+script = ExtResource("2_4ei1h")
+
+[node name="Area3D" type="Area3D" parent="stove_single"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stove_single/Area3D"]
+transform = Transform3D(0.99994, 0, 0.0109777, 0, 1, 0, -0.0109777, 0, 0.99994, 0.0453718, 0.555176, 0.170084)
+shape = SubResource("BoxShape3D_e41ca")
 
 [node name="stove_single2" parent="." instance=ExtResource("9_63faw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.599173, 1.26257, -26.253)
 
+[node name="Area3D" type="Area3D" parent="stove_single2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stove_single2/Area3D"]
+transform = Transform3D(0.999106, 0, -0.042277, 0, 1, 0, 0.042277, 0, 0.999106, 0.0709009, 0.274329, -0.144293)
+shape = SubResource("BoxShape3D_e41ca")
+
 [node name="stove_single3" parent="." instance=ExtResource("9_63faw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3002, 1.27228, -26.266)
+
+[node name="Area3D" type="Area3D" parent="stove_single3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stove_single3/Area3D"]
+transform = Transform3D(0.999912, 0, -0.0132469, 0, 1, 0, 0.0132469, 0, 0.999912, 0.206772, 0.596564, 0.0855732)
+shape = SubResource("BoxShape3D_e41ca")
 
 [node name="kitchencabinet" parent="." instance=ExtResource("11_idhxk")]
 transform = Transform3D(-0.998376, -0.0378648, 0.042564, -0.0342883, 0.996057, 0.0818265, -0.0454945, 0.0802341, -0.995737, -2.29194, -0.619982, -18.0599)
@@ -148,29 +175,10 @@ script = ExtResource("13_i6tb1")
 [node name="Area3D" type="Area3D" parent="fridge_B"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="fridge_B/Area3D"]
-transform = Transform3D(0.964663, 0, -0.263486, 0, 1, 0, 0.263486, 0, 0.964663, 0.88203, 1.12815, 0.141195)
+transform = Transform3D(0.996477, 0.0802337, -0.0243885, -0.0802097, 0.996776, 0.00196311, 0.0244673, 0, 0.9997, 0.0503836, 0.736869, 0.373404)
 shape = SubResource("BoxShape3D_e41ca")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-unique_name_in_owner = true
-script = ExtResource("14_a8fve")
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 188.0
-grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 124
-text = "Choisir un ingrédient"
-
+[connection signal="body_entered" from="stove_single/Area3D" to="stove_single" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="stove_single/Area3D" to="stove_single" method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="fridge_B/Area3D" to="fridge_B" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="fridge_B/Area3D" to="fridge_B" method="_on_area_3d_body_exited"]

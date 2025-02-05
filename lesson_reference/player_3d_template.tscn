@@ -48,6 +48,7 @@ length = 0.5
 slide_on_slope = true
 
 [node name="Player3DTemplate" type="CharacterBody3D"]
+collision_mask = 3
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
@@ -87,7 +88,8 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09401, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
-transform = Transform3D(-1, 2.1052e-08, -1.40279e-07, -3.23484e-08, 0.929023, 0.370022, 1.38112e-07, 0.370022, -0.929023, 0, 0.33984, 0)
+transform = Transform3D(-4.37114e-08, 0.369747, -0.929133, 0, 0.929133, 0.369747, 1, 1.61621e-08, -4.06137e-08, 0, 0.33984, 0)
+collision_mask = 3
 shape = SubResource("SeparationRayShape3D_h1hkf")
 spring_length = 8.0
 

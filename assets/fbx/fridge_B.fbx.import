@@ -34,10 +34,12 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:fridge_B": {
-"generate/physics": true
+"generate/physics": true,
+"physics/layer": 2
 },
 "PATH:fridge_B/fridge_B_door": {
-"generate/physics": true
+"generate/physics": true,
+"physics/layer": 2
 }
 }
 }

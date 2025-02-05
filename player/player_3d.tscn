@@ -22,10 +22,11 @@ unique_name_in_owner = true
 transform = Transform3D(0.101097, -0.0101845, -0.760064, -0.0619748, 0.0366189, -0.316996, 0.220889, 0.0149354, 0.258927, -0.0144807, 1.21321, 0.0944657)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
+collision_mask = 3
 spring_length = 8.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
 unique_name_in_owner = true
-transform = Transform3D(-1.57429, 0.416069, -3.64123, 6.25681, 23.6742, 2.86102e-05, 1.02237, -0.270198, -0.472899, -601.696, 1053.03, -8.511)
+transform = Transform3D(-1.57429, 19.0215, -1.99983, 6.25681, 6.80453, 1.37948e-06, 1.02237, -12.3529, -3.07943, -601.696, 1053.03, -8.511)
 fov = 58.369
