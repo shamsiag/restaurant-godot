@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3r52jciroppk"]
+
+[ext_resource type="Script" path="res://UI/UI order/ui_order.gd" id="1_nv81u"]
+[ext_resource type="FontFile" uid="uid://iegumfiatja8" path="res://assets/kenney_ui-pack/Font/Kenney Future Narrow.ttf" id="2_jkdbg"]
+
+[node name="UiOrder" type="CanvasLayer"]
+script = ExtResource("1_nv81u")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.83
+anchor_right = 1.001
+anchor_bottom = 0.998
+offset_left = 0.399902
+offset_right = 0.0799561
+offset_bottom = 0.159912
+color = Color(0.203322, 0.203322, 0.203322, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_left = 0.83
+anchor_right = 1.0
+anchor_bottom = 0.225
+offset_left = 20.3999
+offset_top = 49.0
+offset_right = -21.0
+offset_bottom = -104.0
+theme_override_fonts/normal_font = ExtResource("2_jkdbg")
+text = "Commandes en attentes"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -327.0
+offset_top = 139.0
+offset_right = 1.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_vertical = 0
+
+[node name="vbox" type="VBoxContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4

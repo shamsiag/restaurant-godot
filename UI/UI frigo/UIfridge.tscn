@@ -31,7 +31,7 @@ offset_bottom = 343.0
 grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("2_cxlve")
 theme_override_font_sizes/normal_font_size = 124
-text = "Appuyer sur espace"
+text = "Appuyer sur Q/A"
 
 [node name="MenuPrompt" type="Control" parent="."]
 unique_name_in_owner = true
@@ -42,27 +42,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuPrompt"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 113.0
-offset_top = 289.0
-offset_right = 1750.0
-offset_bottom = 625.0
-grow_horizontal = 2
-theme_override_fonts/normal_font = ExtResource("2_cxlve")
-theme_override_font_sizes/normal_font_size = 124
-text = "Menu
-"
-
 [node name="MarginContainer" type="MarginContainer" parent="MenuPrompt"]
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = -1
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.734
 anchor_bottom = 0.5
 offset_top = -174.0
+offset_right = -0.280029
 offset_bottom = 174.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -90,6 +77,7 @@ offset_right = -0.320068
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_cxlve")
 theme_override_font_sizes/font_size = 30
 text = "OK"
 

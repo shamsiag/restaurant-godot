@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://disqbpct6ipgc"]
+[gd_scene load_steps=4 format=3 uid="uid://disqbpct6ipgc"]
 
 [ext_resource type="Script" path="res://UI/UI fatana/plat_card.gd" id="1_hqgle"]
 [ext_resource type="FontFile" uid="uid://b8ir0t7lpkert" path="res://assets/kenney_ui-pack/Font/Kenney Future.ttf" id="2_dpi3e"]
+[ext_resource type="FontFile" uid="uid://iegumfiatja8" path="res://assets/kenney_ui-pack/Font/Kenney Future Narrow.ttf" id="2_gogo0"]
 
 [node name="PlatCard" type="Control"]
 custom_minimum_size = Vector2(200, 350)
@@ -34,10 +35,12 @@ grow_horizontal = 2
 [node name="PlatName" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gogo0")
 theme_override_font_sizes/font_size = 32
 text = "Nom"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1

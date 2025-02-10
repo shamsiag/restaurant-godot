@@ -1,5 +1,5 @@
 extends Control
-
+var platCard
 signal selection(name: String)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,10 +10,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func init(nom: String) -> void:
-	%PlatName.text=nom
+func init(plat: DataHandler.Plat) -> void:
+	%PlatName.text=plat.nom
+	platCard= plat
 	
-
-
 func _on_button_button_up() -> void:
-	selection.emit(%PlatName.text)
+	selection.emit(platCard)

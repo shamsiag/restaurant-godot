@@ -31,7 +31,7 @@ offset_bottom = 343.0
 grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("1_7u26h")
 theme_override_font_sizes/normal_font_size = 124
-text = "Appuyer sur espace"
+text = "Appuyer sur A/Q"
 
 [node name="MenuPrompt" type="Control" parent="."]
 unique_name_in_owner = true
@@ -65,6 +65,7 @@ anchor_right = 1.0
 anchor_bottom = 0.642
 offset_left = 0.0799999
 offset_top = 0.47998
+offset_right = -550.0
 offset_bottom = -0.360046
 grow_horizontal = 2
 grow_vertical = 2

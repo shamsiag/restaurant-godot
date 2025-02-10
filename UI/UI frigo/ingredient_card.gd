@@ -1,6 +1,7 @@
 extends Control
 
 var quantity=0
+var ing=null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -10,13 +11,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func init(nom: String) -> void:
-	%IngredientName.text=nom
-	
+func init(ingredient: DataHandler.Ingredient) -> void:
+	%IngredientName.text=ingredient.nom
+	ing=ingredient
 
 
 func _on_spin_box_value_changed(value: float) -> void:
 	quantity=value
 	
 func getQuantity() -> Array:
-	return [%IngredientName.text,quantity]
+	return [ing.id,%IngredientName.text,quantity]

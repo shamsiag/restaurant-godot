@@ -1,6 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://buh8qjy71gp2r"]
+[gd_scene load_steps=3 format=3 uid="uid://buh8qjy71gp2r"]
 
 [ext_resource type="Script" path="res://data_handler.gd" id="1_um5gn"]
+[ext_resource type="PackedScene" uid="uid://iuesfrtetu7p" path="res://http_request.tscn" id="2_pxhpd"]
 
 [node name="DataHandler" type="Node"]
 script = ExtResource("1_um5gn")
+
+[node name="ListeIngredients" parent="." instance=ExtResource("2_pxhpd")]
+unique_name_in_owner = true
+
+[node name="ListePlats" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+
+[node name="RecettePlat" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+use_threads = true
+
+[node name="Commandes" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="RemoveStock" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+
+[connection signal="request_completed" from="ListeIngredients" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="request_completed" from="ListePlats" to="." method="_on_liste_plats_request_completed"]
+[connection signal="request_completed" from="RecettePlat" to="." method="_on_recette_plat_request_completed"]
+[connection signal="request_completed" from="Commandes" to="." method="_on_commandes_request_completed"]
+[connection signal="request_completed" from="RemoveStock" to="." method="_on_remove_stock_request_completed"]
